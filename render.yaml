@@ -1,16 +1,14 @@
 services:
   - type: web
-    name: izumi-v3
-    env: docker
-    branch: main
-    repo: https://github.com/sataniceypz/Izumi-v3.git
-    dockerfilePath: Dockerfile
-    plan: free
-    autoDeploy: false
+    name: Izumi-v3
+    env: node
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node index.js
+    plan: starter 
+    autoDeploy: true
     envVars:
+      - key: NODE_ENV
+        value: production
       - key: SESSION_ID
-        sync: false
-      - key: SUDO
-        sync: false
-      - key: MODE
-        sync: false
+        value: your_api_key_here
